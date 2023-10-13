@@ -1,0 +1,26 @@
+<h1>Gerenciamento de Checkouts</h1>
+<hr>
+<div class="list-group">
+  <table class="table">
+    <tr>
+      <th>Checkout</th>
+
+      <th></th>
+    </tr>
+    <?php foreach ($this->checkouts as $checkout): ?>
+
+        <tr>
+          <td><a href="<?= $this->url('checkout/detail', ['id' => $checkout['id']]) ?>"> <?= $checkout['titulo'] ?></a></td>
+          <td>
+            <a class="btn btn-xs btn-default" href="<?= $this->url('checkout/edit', ['id' => $checkout['id']]) ?>">Editar</a>
+            <a class="btn btn-xs btn-danger" href="<?= $this->url('checkout/delete', ['id' => $checkout['id']]) ?>">Excluir</a>
+          </td>
+        </tr>
+
+    <?php endforeach ?>
+  </table>
+</div>
+
+<div class="btn-group" role="group" aria-label="Post actions">
+  <a class="btn btn-primary" href="<?= $this->url('checkout/add') ?>">Cadastrar Novo Checkout</a>
+</div>

@@ -1,0 +1,150 @@
+<?php
+    $form = $this->form;
+    $fieldset = $form->get('checkout');
+
+    $id_produto = $fieldset->get('id_produto');
+    $id_produto->setAttribute('class', 'form-control');
+    $id_produto->setAttribute('placeholder', 'Produto');
+
+    $titulo = $fieldset->get('titulo');
+    $titulo->setAttribute('class', 'form-control');
+    $titulo->setAttribute('placeholder', 'Titulo');
+
+    $descricao = $fieldset->get('descricao');
+    $descricao->setAttribute('class', 'form-control');
+    $descricao->setAttribute('placeholder', 'Descrição');
+
+    $imagem = $fieldset->get('imagem');
+    $imagem->setAttribute('class', 'form-control');
+    $imagem->setAttribute('placeholder', 'Imagem');
+
+    $valor = $fieldset->get('valor');
+    $valor->setAttribute('class', 'form-control');
+    $valor->setAttribute('placeholder', 'Valor');
+
+    $item_aprendizado = $fieldset->get('item_aprendizado');
+    $item_aprendizado->setAttribute('class', 'form-control');
+    $item_aprendizado->setAttribute('placeholder', 'Item do Resumo');
+
+    $submit = $form->get('submit');
+    $submit->setValue($this->submitLabel);
+    $submit->setAttribute('class', 'btn btn-primary');
+
+    $form->prepare();
+
+    echo $this->form()->openTag($form); 
+?>
+
+<fieldset>
+    <div class="form-group">
+        <?= $this->formLabel($id_produto) ?>
+        <?= $this->formElement($id_produto) ?>
+        <?= $this->formElementErrors()->render($id_produto, ['class' => 'help-block']) ?>
+    </div>
+
+    <div class="form-group">
+        <?= $this->formLabel($titulo) ?>
+        <?= $this->formElement($titulo) ?>
+        <?= $this->formElementErrors()->render($titulo, ['class' => 'help-block']) ?>
+    </div>
+
+    <div class="form-group">
+        <?= $this->formLabel($descricao) ?>
+        <?= $this->formElement($descricao) ?>
+        <?= $this->formElementErrors()->render($descricao, ['class' => 'help-block']) ?>
+    </div>
+
+    <div class="form-group">
+        <?= $this->formLabel($valor) ?>
+        <?= $this->formElement($valor) ?>
+        <?= $this->formElementErrors()->render($valor, ['class' => 'help-block']) ?>
+    </div>
+
+    <div class="form-group">
+        <?= $this->formLabel($item_aprendizado) ?>
+        <?= $this->formElement($item_aprendizado) ?>
+        <?= $this->formElementErrors()->render($item_aprendizado, ['class' => 'help-block']) ?>
+    </div>
+</fieldset>
+
+    <div class="form-group">
+        <p>Adionar Itens de Aprendizado:</p> 
+        <input class="form-items" type="text" id="new-task-input"> 
+        <button type="button" class="btn btn-primary" id="add-btn">Adicionar</button>
+        <table id="task-table">
+            <thead>
+                <tr>
+                    <th>Descrição</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="upload-img">
+        <?php 
+            $valorImagem = $imagem->getValue();
+            if ($valorImagem <> "") { 
+            $caminhoArquivo = "/uploads/" . $imagem->getValue();?>
+            <img src="<?= $this->basePath($caminhoArquivo) ?>" alt="Imagem"/>
+        <?php } ?>
+
+        <div class="form-group">
+            <?= $this->formLabel($imagem) ?>
+            <?= $this->formFile($imagem) ?>
+            <?= $this->formElementErrors()->render($imagem, ['class' => 'help-block']) ?>
+        </div>
+    </div>
+    
+	<script>
+        let campo = document.querySelector('input[name="checkout[item_aprendizado]"]');
+		let taskList = [];
+
+		function updateTable() {
+			let tableBody = document.querySelector("#task-table tbody");
+			tableBody.innerHTML = "";
+			taskList.forEach(function(task, index) {
+				let row = document.createElement("tr");
+				let taskCell = document.createElement("td");
+				taskCell.textContent = task;
+				row.appendChild(taskCell);
+				let actionCell = document.createElement("td");
+				let editButton = document.createElement("button");
+				editButton.textContent = "Editar";
+				editButton.addEventListener("click", function() {
+					let newTask = prompt("Digite a nova descrição da tarefa:");
+					if (newTask !== null) {
+						taskList[index] = newTask;
+						updateTable();
+					}
+				});
+				actionCell.appendChild(editButton);
+				let deleteButton = document.createElement("button");
+				deleteButton.textContent = "Excluir";
+				deleteButton.addEventListener("click", function() {
+					taskList.splice(index, 1);
+					updateTable();
+				});
+				actionCell.appendChild(deleteButton);
+				row.appendChild(actionCell);
+				tableBody.appendChild(row);
+                campo.value = taskList;
+			});
+		}
+
+		document.getElementById("add-btn").addEventListener("click", function() {
+			let newTask = document.getElementById("new-task-input").value;
+			taskList.push(newTask);
+            campo.value = taskList;
+			updateTable();
+		});
+	</script>
+
+</script>
+
+<?php
+echo $this->formSubmit($submit);
+echo $this->formHidden($fieldset->get('id'));
+echo $this->form()->closeTag();

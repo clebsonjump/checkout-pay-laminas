@@ -1,0 +1,10 @@
+<h1>Add a blog post</h1>
+
+<?php
+$form = $this->form;
+$form->setAttributes(['action'=> $this->url(), 'enctype' => 'multipart/form-data']);
+
+echo $this->partial('checkout/checkout/form', [
+    'form' => $form,
+    'submitLabel' => 'Insert new post',
+]);

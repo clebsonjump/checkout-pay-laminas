@@ -1,0 +1,683 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-size: 14px;
+}
+
+#loading {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+#loading-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.mg-0-8 {
+  margin: 0.8rem;
+}
+
+.container {
+  display: initial!important;
+}
+
+:root {
+  --primary-color: #0071bc;
+  --border-color: #e6e9ed;
+}
+
+#timer {
+  width: 100%;
+  height: 85px;
+  background-color: #de9d02;
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+}
+
+.navbar {
+  display: none;
+}
+
+.container {
+  max-width: 1140px;
+}
+
+.d-flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.t-container {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 39px;
+}
+
+.t-div {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+#selos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  overflow-x: hidden;
+}
+
+.incon-t-clock {
+  background-color: transparent;
+}
+
+.t-clock {
+  font-weight: 700;
+  font-size: 41px;
+  color: white;
+}
+
+.row-pagamento {
+  display: grid;
+}
+
+#pagamento #options input[type="radio"]:checked + label {
+  background-color: white;
+  color: #375ec1;
+  border: 1.6px solid #375ec1;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+#pagamento #options input[type="radio"]:hover + label {
+  cursor: pointer;
+}
+
+.t-text {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: white;
+}
+
+
+#checkout {
+  background: #1e1e1e;
+  padding: 0 112px;
+  padding-top: 140px;
+}
+
+.parent {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 50px auto 2fr;
+  gap: 15px 26px;
+  grid-template-areas:
+    "div1 div3"
+    "div2 div3"
+    "div4 div3";
+}
+
+.div1 {
+  grid-area: div1;
+  height: 50px;
+  border-radius: 10px;
+  background-color: var(--primary-color);
+}
+
+.div1-text {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 17px;
+  text-align: center;
+  color: white;
+}
+
+.div2 {
+  height: fit-content;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  grid-area: div2;
+  padding: 25px 0;
+  background-color: white;
+}
+
+.info-curso {
+  display: flex;
+  column-gap: 15px;
+  justify-content: flex-end;
+  margin-bottom: 15px;
+  align-items: center;
+  align-content: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+.div2 .icon-info {
+  background-color: transparent;
+}
+
+.info-description {
+  width: 80%;
+}
+
+.info-title {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--primary-color);
+}
+
+.info-text {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.div3 {
+  grid-area: div3;
+  height: fit-content;
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px;
+  height: auto;
+}
+
+#main-course {
+  display: flex;
+  column-gap: 10px;
+  padding-bottom: 15px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.img-course .imagem {
+  width: 106.62px;
+  height: 106.62px;
+}
+
+.course-title {
+  font-weight: 700;
+  font-size: 20.1221px;
+  line-height: 25px;
+}
+
+.course-text {
+  font-weight: 500;
+  font-size: 15.0916px;
+  line-height: 18px;
+}
+
+.course-price {
+  font-weight: 700;
+  font-size: 25.1526px;
+  line-height: 31px;
+  color: var(--primary-color);
+}
+
+.column-pagamento {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-pagamento {
+  display: flex;
+  flex-direction: column;
+  margin: 0 1rem;
+}
+
+.infos-cartao {
+  display: flex;
+  gap: 15px;
+}
+
+.infos-cartao .field-input {
+  width: 96px;
+}
+
+.field-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.field-input label {
+  margin: 18px 0 4px 0;
+}
+
+.field-input input {
+  height: 43px;
+  border: 1px solid #c9ced4;
+  border-radius: 3px;
+  padding: 0 12px;
+}
+
+.img-cartao {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  width: 284px;
+  gap: 10px;
+  height: 182px;
+  padding: 0 0 25px 25px;
+  margin-top: 50px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #484d54 0%, #6f767f 100%);
+}
+
+.cartao-estilo {
+  color: #a1a5a9;
+  font-weight: 800;
+  line-height: 22px;
+}
+.tipos-cartoes {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.cartao-detalhes {
+  display: flex;
+  gap: 150px;
+}
+
+.tipos-cartoes p {
+  margin-top: 15px;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#options {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  column-gap: 22px;
+  flex-direction: row;
+  overflow-x: hidden;
+}
+
+#options label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  color: #707780;
+  border: 1px solid #c9ced4;
+  width: 177px;
+  height: 64px;
+  border-radius: 3px;
+  margin-top: 0;
+  text-align: center;
+}
+
+#options input[type="radio"] {
+  display: none;
+}
+
+.forma-pagamento {
+  border: 1px solid #c9ced4;
+  padding: 12px;
+  border-radius: 3px;
+}
+
+.parcelas select {
+  height: 43px;
+  border: 1px solid #009d43;
+  border-radius: 3px;
+}
+
+.details-compras {
+  font-weight: 500;
+  font-size: 16.2452px;
+  line-height: 20px;
+  color: #707780;
+  padding: 25px 0 15px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.price-final {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.price-text {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.prive-valor {
+  font-weight: 700;
+  font-size: 26.3083px;
+  line-height: 32px;
+  color: var(--primary-color);
+}
+
+.c-pointer {
+  height: 49px;
+  width: 100%;
+  background: #318834;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: white;
+}
+
+.div4 {
+  grid-area: div4;
+  background-color: white;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.resource-title {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.resource {
+  width: 100%;
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: flex-start;
+  display: grid;
+}
+
+.cr-title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: var(--primary-color);
+}
+
+.ul-cr-title {
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.04em;
+  color: var(--primary-color);
+}
+
+.li-resource {
+  padding: 5px;
+}
+
+.aprender {
+  text-align: center;
+  padding: 25px;
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 24px;
+  color: var(--primary-color);
+}
+
+.aprendizados {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.item-aprendizados {
+  min-width: 300px;
+  max-width: 65%;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.item-aprendizados span {
+  display: flex;
+  background-color: transparent;
+}
+
+.aprendizados p {
+  padding: 9px 0;
+  font-weight: 400;
+  width: 300px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+footer ul {
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  list-style-type: none;
+  padding: 0;
+}
+
+footer {
+  color: ff7e06;
+  border: 1px solid;
+  border-radius: 0.5rem;
+  padding: 1.6rem;
+  margin: 2rem 0;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.row-footer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.f-descricao {
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 15px;
+  color: white;
+}
+
+.f-title {
+  flex-grow: 1;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 20px;
+  color: #ff7e06;
+}
+
+@media (max-width: 1030px) {
+  #checkout {
+    padding: 140px 0 0 0;
+  }
+
+  .parent {
+    grid-template-columns: minmax(330px, 1fr);
+    grid-template-rows: auto auto auto auto;
+    gap: 15px 0;
+    grid-template-areas:
+      "div1"
+      "div2"
+      "div3"
+      "div4";
+  }
+
+  .div1 {
+    margin: 0 40px;
+    justify-content: center;
+  }
+
+  .div1-text {
+    font-size: 11px;
+  }
+
+  .div2 {
+    margin: 0 40px;
+    justify-content: center;
+  }
+
+  .div3 {
+    margin: 0 20px;
+  }
+
+  .div4 {
+    margin: 2rem 3rem;
+  }
+
+  .t-div {
+    display: none;
+  }
+
+  footer {
+    margin: 4rem 3rem;
+  }
+}
+
+@media (max-width: 990px) {
+  .column-pagamento {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .resource-title {
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    padding: 10px;
+  }
+
+  .aprender {
+    font-size: 17px;
+    padding: 15px 0;
+    margin: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+  }
+
+  .infos-cartao {
+    justify-content: center;
+  }
+
+  .img-cartao {
+    display: none;
+  }
+
+  .tipos-cartoes {
+    gap: 30px;
+  }
+
+  .item-aprendizados {
+    min-width: 300px;
+    max-width: 65%;
+    display: flex;
+    align-items: center;
+  }
+
+  #footer .text-left {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    text-align: center;
+    margin: 20px;
+  }
+}
+
+@media (max-width: 650px) {
+  #options {
+    column-gap: 0;
+  }
+
+  #options label {
+    border-radius: 0;
+  }
+}
+
+#selos-mobile {
+  display: none;
+}
+
+@media (max-width: 500px) {
+  #selos-mobile {
+    display: flex;
+    margin-top: 1rem;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: auto;
+  }
+
+  #selos {
+    display: none;
+  }
+
+  .t-container,
+  .t-div {
+    gap: 12px;
+  }
+
+  .t-text {
+    font-size: 12px;
+  }
+
+  .t-clock {
+    font-size: 28px;
+  }
+
+  .incon-t-clock {
+    width: 32.46px;
+    height: 27.17px;
+  }
+
+  .div4 {
+    padding: 10px;
+  }
+
+  .resource {
+    padding: 10px 0;
+  }
+
+  .li-resource {
+    font-size: 13px;
+  }
+
+  .item-aprendizados {
+    min-width: 240px;
+  }
+
+  .ul-cr-title {
+    font-size: 11px;
+  }
+
+  .row-footer {
+    display: block;
+    text-align: center;
+  }
+}

@@ -1,0 +1,42 @@
+<?php 
+$title = 'Listagem de Produtos';
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title); ?></h1>
+<p>
+    <a href="<?= $this->url('produto', ['action' => 'add']) ?>">Adicionar Novo Produto</a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Imagem</th>
+        <th>&nbsp;</th>
+    </tr>
+    <?php foreach ($this->paginator as $produto) :  ?>
+        <tr>
+            <td><?= $this->escapeHtml($produto->nome) ?></td>
+            <td><?= $this->escapeHtml($produto->descricao) ?></td>
+            <td><?= $this->escapeHtml($produto->imagem) ?></td>
+            <td>
+                <a href="<?= $this->url('produto', ['action' => 'edit', 'id' => $produto->id]) ?>">
+                    Editar
+                </a>
+                <a href="<?= $this->url('produto', ['action' => 'delete', 'id' => $produto->id]) ?>">
+                    Deletar
+                </a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+
+<?php
+
+?>
+<?= $this->paginationControl(
+    $this->paginator,
+    'sliding',
+    'partial/paginator',
+    ['route' => 'produto']
+) ?>

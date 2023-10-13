@@ -1,0 +1,9 @@
+<h1>Edição de Checkout</h1>
+
+<?php
+$form = $this->form;
+$form->setAttribute('action', $this->url('checkout/edit', [], true));
+echo $this->partial('checkout/checkout/form', [
+    'form' => $form,
+    'submitLabel' => 'Confirmar Edição',
+]);
